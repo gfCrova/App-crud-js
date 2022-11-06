@@ -29,10 +29,12 @@ class Interfaz {
 
 const form = document.getElementById('formProductos');
 
-form.addEventListener('submit', () =>  { 
+form.addEventListener('submit', (e) =>  { 
     const name = document.getElementById('nombre').value;
     const price = document.getElementById('precio').value;
     const date = document.getElementById('fecha').value;
     const amount = document.getElementById('cantidad').value;
     console.log(name, price, amount, date);
+
+    e.preventDefault();   // Cancelar comportamiento por defecto
 });
