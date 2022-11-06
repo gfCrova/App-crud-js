@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/solar/bootstrap.min.css" integrity="sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div id="app" class="row pt-5">
+            <div class="col-md-4">
+                <div class="card p-1">
+                    <div class="card-header">
+                        <h4>Agrega un producto</h4>
+                    </div>
+                    <div class="card-body p-2">
+                        <form id="formProductos" class="form-group">
+                            <div class="pt-3">
+                                <input type="text" id="name" placeholder="Product Name" class="form-control">
+                            </div>
+                            <div class="pt-3">
+                                <input type="number" id="precio" step="0.01" placeholder="Product Price" class="form-control">
+                            </div>
+                            <div class="d-flex pt-3">
+                                <input type="date" class="form-control">
+                                <input type="number" placeholder="cantidad" class="form-control" min="1" max="99">
+                            </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" value="Guardar" class="btn btn-primary btn-block">Crear</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-8"  id="lista-productos">
+        
+            </div>
+        </div>
+    </div>
+    <script src="/src/app.js"></script>
+</body>
+</html>
