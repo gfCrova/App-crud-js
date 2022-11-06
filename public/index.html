@@ -18,21 +18,21 @@
                     <div class="card-body p-2">
                         <form id="formProductos" class="form-group">
                             <div class="pt-3">
-                                <input type="text" id="name" placeholder="Product Name" class="form-control">
+                                <input type="text" id="nombre" placeholder="Product Name" class="form-control">
                             </div>
                             <div class="pt-3">
                                 <input type="number" id="precio" step="0.01" placeholder="Product Price" class="form-control">
                             </div>
-                            <div class="d-flex pt-3">
-                                <input type="date" class="form-control">
-                                <input type="number" placeholder="cantidad" class="form-control" min="1" max="99">
+                            <div class="d-flex pt-3 pe-2">
+                                <input type="date" id="fecha" class="form-control">
+                                <input type="number" id="cantidad" placeholder="cantidad" class="form-control" min="1" max="99">
                             </div>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" value="Guardar" class="btn btn-primary btn-block">Crear</button>
+                            <div class="pt-3">
+                                <input type="submit" value="Guardar" class="btn btn-primary btn-block"></input>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                
             </div>
             <div class="col-md-8"  id="lista-productos">
         
