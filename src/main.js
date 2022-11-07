@@ -2,7 +2,7 @@
 // CLASES 
 
 class Producto {
-    constructor(nombre, precio, fecha, cantidad){
+    constructor(nombre, precio, fecha, cantidad) {
         this.nombre = nombre
         this.precio = precio
         this.fecha = fecha
@@ -11,7 +11,7 @@ class Producto {
 }
 
 class Interfaz {
-    agregarProducto(product){
+    agregarProducto(product) {
         const listaProductos = document.getElementById('lista-productos');
         const element = document.createElement('div');
         element.innerHTML = `
@@ -30,18 +30,18 @@ class Interfaz {
         listaProductos.appendChild(element);
     }
 
-    resetForm(){
+    resetForm() {
         document.getElementById('formProductos').reset();
     }
 
-    eliminarProducto(element){
-        if(element.name === 'delete'){
+    eliminarProducto(element) {
+        if (element.name === 'delete') {
             element.parentElement.parentElement.parentElement.remove();
             this.mostrarMensaje('El producto se ha eliminado', 'danger')
         }
     }
 
-    mostrarMensaje(mensaje, colorCss){
+    mostrarMensaje(mensaje, colorCss) {
         const div = document.createElement('div');
         div.className = `alert alert-${colorCss} mt-4`;
         div.appendChild(document.createTextNode(mensaje));
@@ -52,7 +52,7 @@ class Interfaz {
         // Eliminando el mensaje automaticamente
         setTimeout(() => {
             document.querySelector('.alert').remove();
-        }, 2000);
+        }, 2500);
     }
 }
 
@@ -60,31 +60,36 @@ class Interfaz {
 
 // EVENTOS
 
+////////////// Guardar el Producto /////////////////
+
 const form = document.getElementById('formProductos');
 
-form.addEventListener('submit', (e) =>  { 
-    const name = document.getElementById('nombre').value;
-    const price = document.getElementById('precio').value;
-    const date = document.getElementById('fecha').value;
-    const amount = document.getElementById('cantidad').value;
+form.addEventListener('submit', (e) => {
 
-    const product = new Producto(name, price, date, amount); // Nueva Instancia de la clase producto
-    
-    const interfaz = new Interfaz();
-    if(name === '' || price === '' || date === '') {
-        return interfaz.mostrarMensaje('Por favor introducir datos en los campos obligatorios!', 'danger');
+    const name_ = document.getElementById('nombre').value;
+    const price_ = document.getElementById('precio').value;
+    const date_ = document.getElementById('fecha').value;
+    const amount_ = document.getElementById('cantidad').value;
+
+    const product_ = new Producto(name_, price_, date_, amount_); // Nueva Instancia de la clase producto
+    const interfaz_ = new Interfaz();                            // Nueva Instancia de la clase Interfaz
+
+    if (name_ === '' || price_ === '' || date_ === '') {
+        return interfaz_.mostrarMensaje('Por favor introducir datos en los campos obligatorios!', 'danger');
     }
-    interfaz.agregarProducto(product);  // A la Nueva Instancia de la clase Interfaz 
-    interfaz.resetForm();               // Llamar al método resetForm();
-
-    interfaz.mostrarMensaje('Producto Agregado Satisfactoriamente', 'success');
+    interfaz_.agregarProducto(product_);  // A la Nueva Instancia de la clase Interfaz 
+    interfaz_.resetForm();               // Llamar al método resetForm();
+    interfaz_.mostrarMensaje('Producto Agregado Satisfactoriamente', 'success');
 
     e.preventDefault();   // Cancelar comportamiento por defecto
 });
 
+
+//////////// Borrar el producto ////////////////////
+
 const deleteProducts = document.getElementById('lista-productos');
 
 deleteProducts.addEventListener('click', (e) => {
-    const interfaz = new Interfaz();
-    interfaz.eliminarProducto(e.target);
+    const interfazDelete = new Interfaz();
+    interfazDelete.eliminarProducto(e.target);
 })
