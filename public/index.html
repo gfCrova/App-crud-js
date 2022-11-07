@@ -11,20 +11,20 @@
     <div class="container">
         <div id="app" class="row pt-5">
             <div class="col-md-4">
-                <div class="card p-1">
+                <div class="card p-1 shadow-lg">
                     <div class="card-header">
                         <h4>Agrega un producto</h4>
                     </div>
                     <div class="card-body p-2">
                         <form id="formProductos" class="form-group">
                             <div class="pt-3">
-                                <input type="text" id="nombre" placeholder="Product Name" class="form-control">
+                                <input type="text" id="nombre" placeholder="Product Name" class="form-control" required>
                             </div>
                             <div class="pt-3">
-                                <input type="number" id="precio" step="0.01" placeholder="Product Price" class="form-control">
+                                <input type="number" id="precio" step="0.01" placeholder="Product Price" class="form-control" required>
                             </div>
                             <div class="d-flex pt-3 pe-2">
-                                <input type="date" id="fecha" class="form-control">
+                                <input type="date" id="fecha" class="form-control" required>
                                 <input type="number" id="cantidad" placeholder="cantidad" class="form-control" min="1" max="99">
                             </div>
                             <div class="pt-3">
@@ -34,9 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8"  id="lista-productos">
-        
-            </div>
+            <div class="col-md-8 bg-dark shadow-lg"  id="lista-productos"></div>
         </div>
     </div>
     <script src="/main.js"></script>
