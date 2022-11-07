@@ -37,11 +37,22 @@ class Interfaz {
     eliminarProducto(element){
         if(element.name === 'delete'){
             element.parentElement.parentElement.parentElement.remove();
+            this.mostrarMensaje('El producto se ha eliminado', 'danger')
         }
     }
 
-    mostrarMensaje(){
-
+    mostrarMensaje(mensaje, colorCss){
+        const div = document.createElement('div');
+        div.className = `alert alert-${colorCss} mt-4`;
+        div.appendChild(document.createTextNode(mensaje));
+        // Mostrando el el DOM
+        const container = document.querySelector('.container');
+        const app = document.querySelector('#app');
+        container.insertBefore(div, app);
+        // Eliminando el mensaje automaticamente
+        setTimeout(() => {
+            document.querySelector('.alert').remove();
+        }, 2000);
     }
 }
 
@@ -60,8 +71,13 @@ form.addEventListener('submit', (e) =>  {
     const product = new Producto(name, price, date, amount); // Nueva Instancia de la clase producto
     
     const interfaz = new Interfaz();
+    if(name === '' || price === '' || date === '') {
+        return interfaz.mostrarMensaje('Por favor introducir datos en los campos obligatorios!', 'danger');
+    }
     interfaz.agregarProducto(product);  // A la Nueva Instancia de la clase Interfaz 
     interfaz.resetForm();               // Llamar al método resetForm();
+
+    interfaz.mostrarMensaje('Producto Agregado Satisfactoriamente', 'success');
 
     e.preventDefault();   // Cancelar comportamiento por defecto
 });
