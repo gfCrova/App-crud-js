@@ -1,0 +1,62 @@
+.form {
+    .card {
+        min-height: 650px;
+        max-height: 650px;
+        .card-body {
+            #formProductos {
+                div {
+                    margin-top: 1rem;
+                    padding-bottom: 1rem;
+
+                    label {
+                        font-size: 16pt;
+                    }
+                    input {
+                        font-size: 16pt;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#lista-productos {
+    background: linear-gradient(120deg, rgb(241, 241, 241),rgb(211, 246, 248), rgba(72, 219, 238, 0.692));
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    transition: all 1s;
+    min-height: 650px;
+    max-height: 650px;
+    overflow-y: scroll;
+
+    .cardPadre {
+        color: white;
+        text-align: center;
+        animation: aparecer 0.5s forwards ease-in;
+        transition: all 1s;
+        background: linear-gradient(40deg, rgb(10, 52, 129), rgb(13, 64, 129), rgb(61, 129, 255));
+        margin: 2rem 1.5rem;
+        box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.562);
+
+        img {
+            margin: auto;
+            max-width: 70px;
+        }
+    }
+}
+
+
+@keyframes aparecer {
+
+    0% { transform: scale(0.1)}
+    100% { transform: translateX(1);}
+}
+
+
+@media (max-width: 768px) {
+    #lista-productos {
+        margin-top: 3rem;
+    }
+}

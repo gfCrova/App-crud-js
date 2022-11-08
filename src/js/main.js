@@ -15,15 +15,16 @@ class Interfaz {
         const listaProductos = document.getElementById('lista-productos');
         const element = document.createElement('div');
         element.innerHTML = `
-            <div class="card bg-light cardPadre text-center m-4 rounded-5">
+            <div class="card bg-light col-md cardPadre">
+                <img src="/assets/img/proyectos.png" class="card-img-top" alt="img">
                 <div class="card-body">
-                    <ul class="d-flex justify-content-around align-items-center list-unstyled f-5">
+                    <ul class="align-items-center list-unstyled f-3">
                         <li><strong>Product</strong>: ${product.nombre}</li>
                         <li><strong>Precio</strong>: ${product.precio}</li>
                         <li><strong>Fecha</strong>: ${product.fecha}</li>
                         <li><strong>Cantidad</strong>: ${product.cantidad}</li>
-                        <a href="#" class="btn btn-primary" name="delete">Delete</a>
                     </ul>
+                    <a href="#" class="btn btn-primary" name="delete">Delete</a>
                 </div>
             </div>
         `;
@@ -46,7 +47,7 @@ class Interfaz {
         div.className = `alert alert-${colorCss} mt-4`;
         div.appendChild(document.createTextNode(mensaje));
         // Mostrando el el DOM
-        const container = document.querySelector('.container');
+        const container = document.querySelector('.container-fluid');
         const app = document.querySelector('#app');
         container.insertBefore(div, app);
         // Eliminando el mensaje automaticamente
@@ -66,20 +67,21 @@ const form = document.getElementById('formProductos');
 
 form.addEventListener('submit', (e) => {
 
-    const name_ = document.getElementById('nombre').value;
-    const price_ = document.getElementById('precio').value;
-    const date_ = document.getElementById('fecha').value;
-    const amount_ = document.getElementById('cantidad').value;
+    const nombre = document.getElementById('nombre').value;
+    const precio = document.getElementById('precio').value;
+    const fecha = document.getElementById('fecha').value;
+    const cantidad = document.getElementById('cantidad').value;
 
-    const product_ = new Producto(name_, price_, date_, amount_); // Nueva Instancia de la clase producto
-    const interfaz_ = new Interfaz();                            // Nueva Instancia de la clase Interfaz
+    const product = new Producto(nombre, precio, fecha, cantidad); // Nueva Instancia de la clase producto
+    const interfaz = new Interfaz();                            // Nueva Instancia de la clase Interfaz
 
-    if (name_ === '' || price_ === '' || date_ === '') {
-        return interfaz_.mostrarMensaje('Por favor introducir datos en los campos obligatorios!', 'danger');
+    if (nombre === '' || precio === '' || fecha === '') {
+        return interfaz.mostrarMensaje('Por favor introducir datos en los campos obligatorios!', 'danger');
     }
-    interfaz_.agregarProducto(product_);  // A la Nueva Instancia de la clase Interfaz 
-    interfaz_.resetForm();               // Llamar al método resetForm();
-    interfaz_.mostrarMensaje('Producto Agregado Satisfactoriamente', 'success');
+
+    interfaz.agregarProducto(product);  // A la Nueva Instancia de la clase Interfaz 
+    interfaz.resetForm();               // Llamar al método resetForm();
+    interfaz.mostrarMensaje('Producto Agregado Satisfactoriamente', 'success');
 
     e.preventDefault();   // Cancelar comportamiento por defecto
 });
