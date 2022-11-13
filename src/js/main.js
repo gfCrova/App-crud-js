@@ -72,18 +72,18 @@ form.addEventListener('submit', (e) => {
     const fecha = document.getElementById('fecha').value;
     const cantidad = document.getElementById('cantidad').value;
 
-    const product = new Producto(nombre, precio, fecha, cantidad); // Nueva Instancia de la clase producto
-    const interfaz = new Interfaz();                            // Nueva Instancia de la clase Interfaz
+    const product = new Producto(nombre, precio, fecha, cantidad); 
+    const interfaz = new Interfaz();                            
 
     if (nombre === '' || precio === '' || fecha === '') {
         return interfaz.mostrarMensaje('Por favor introducir datos en los campos obligatorios!', 'danger');
     }
 
-    interfaz.agregarProducto(product);  // A la Nueva Instancia de la clase Interfaz 
-    interfaz.resetForm();               // Llamar al método resetForm();
+    interfaz.agregarProducto(product);  
+    interfaz.resetForm();               
     interfaz.mostrarMensaje('Producto Agregado Satisfactoriamente', 'success');
 
-    e.preventDefault();   // Cancelar comportamiento por defecto
+    e.preventDefault();
 });
 
 
